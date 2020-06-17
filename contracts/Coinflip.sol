@@ -1,7 +1,7 @@
-pragma solidity ^0.5.12;
-
 import "./provableAPI_0.5.sol";
 import "./Ownable.sol";
+
+pragma solidity ^0.5.12;
 
 contract Coinflip is usingProvable, Ownable{
 
@@ -126,7 +126,7 @@ contract Coinflip is usingProvable, Ownable{
 
 
     function userWithdraw() public {
-        require(result[msg.sender].playerWinnings > 0, "You don't have any funds");
+        require(afterWaiting[msg.sender].playerWinnings > 0, "You don't have any funds");
         //require msg.sender is the player in Bet struct after this
         uint toTransfer = afterWaiting[msg.sender].playerWinnings;
         contractBalance -= toTransfer;
